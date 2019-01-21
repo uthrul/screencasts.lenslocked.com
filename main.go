@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-func handlerFunc(w http.ResponseWriter, r *http.Request
-	) {
+func handlerFunc(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Someone visited our page")
 	fmt.Fprint(w, "<h1>Welcome to my awesome site!</h1>")
 }
 
