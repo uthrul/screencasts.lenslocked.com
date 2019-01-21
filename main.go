@@ -8,13 +8,8 @@ import (
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
-	var username string = "sauth"
 	w.Header().Set("Content-Type", "text/html")
-	if username == "" {
-			fmt.Fprint(w, "<h1>Welcome to my awesome site!</h1>")
-	} else {
-			fmt.Fprint(w, "<h1>Welcome to my awesome site, "+username"!</h1>")
-	}
+	fmt.Fprint(w, "<h1>Welcome to my awesome site!</h1>")
 }
 
 func contact(w http.ResponseWriter, r *http.Request) {
