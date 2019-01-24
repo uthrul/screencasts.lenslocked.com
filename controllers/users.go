@@ -18,7 +18,11 @@ type Users struct {
 }
 
 func (u *Users) New(w http.ResponseWriter, r *http.Request) {
-	u.NewView.Render(w, nil)
+	// click sign up on web
+	fmt.Println("Inside the New method!!!")
+	if err := u.NewView.Render(w, nil); err != nil {
+		panic(err)
+	}
 }
 
 func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
