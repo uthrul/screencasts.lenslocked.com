@@ -6,7 +6,10 @@ import (
 	"path/filepath"
 )
 
-var LayoutDir string = "views/layouts"
+var (
+	LayoutDir   string = "views/layouts/"
+	TemplateExt string = ".gohtml"
+)
 
 func NewView(layout string, files ...string) *View {
 	files = append(files, layoutFiles()...)
