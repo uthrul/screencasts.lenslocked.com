@@ -26,14 +26,31 @@ func (u *Users) New(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+type SignupForm struct {
+	Email    string `schema:"email"`
+	Password string `schema:"password"`
+}
+
 // POST / signup
 func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
+	var form SignupForm
+	if err := parseForm(r, &form); err != nil {
 		panic(err)
 	}
-	// r.PostForm = map[string][]string
-	fmt.Fprintln(w, r.PostForm["email"])
-	fmt.Fprintln(w, r.PostFormValue("email"))
-	fmt.Fprintln(w, r.PostForm["password"])
-	fmt.Fprintln(w, r.PostFormValue("password"))
+	fmt.Fprintln(w, form)
+
+	// 	r.PostForm = map[string][]string
+	// 	fmt.Fprintln(w, r.PostForm["email"])
+	// 	fmt.Fprintln(w, r.PostFormValue("email"))
+	// 	fmt.Fprintln(w, r.PostForm["password"])
+	// 	fmt.Fprintln(w, r.PostFormValue("password"))
+}
+
+// POST / Update
+func (u *Users) Update(w http.ResponseWriter, r *http.Request) {
+	var form SignupForm
+	if err := parseForm(r, &form); err != nil {
+		panic(err)
+	}
+	fmt.Fprintln(w, form)
 }
